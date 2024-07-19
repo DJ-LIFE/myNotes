@@ -34,11 +34,11 @@ app.post('/login', usersController.login);
 app.get('/logout', usersController.logout);
 app.get('/check-auth', requireAuth, usersController.checkAuth);
 
-app.get('/notes', notesController.fetchNotes);
-app.get('/notes/:id', notesController.fetchNote);
-app.post('/notes' , notesController.addNotes);
-app.put('/notes/:id', notesController.updateNotes);
-app.delete('/notes/:id', notesController.deleteNotes);
+app.get('/notes', requireAuth, notesController.fetchNotes);
+app.get('/notes/:id', requireAuth, notesController.fetchNote);
+app.post('/notes' , requireAuth, notesController.addNotes);
+app.put('/notes/:id',requireAuth, notesController.updateNotes);
+app.delete('/notes/:id',requireAuth, notesController.deleteNotes);
 
 // Start Our Server
 app.listen(process.env.PORT, () => {
