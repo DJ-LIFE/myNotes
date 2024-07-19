@@ -9,10 +9,10 @@ export default function Note({ note }) {
               <h3>{note.title}</h3>
               <button onClick={() => store.deleteNote(note._id)}>
                 Delete note
-                </button>
+              </button>
               <button onClick={() => store.toggleUpdate(note)}>
                 Update Note
-                </button>
+              </button>
         </div>
     )
 }
